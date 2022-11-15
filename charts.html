@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% block defineStyle %}
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Numans');
+
+        body {
+            background-image: url('https://raw.githubusercontent.com/Darshan110801/Site-for-my-blogs/main/544750.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: repeat;
+            height: 100%;
+            font-family: 'Numans', sans-serif;
+        }
+
+        .container {
+            height: 100%;
+            align-content: center;
+        }
+
+        .card {
+            height: 370px;
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 400px;
+            background-color: rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .social_icon span {
+            font-size: 60px;
+            margin-left: 10px;
+            color: #FFC312;
+        }
+
+        .social_icon span:hover {
+            color: white;
+            cursor: pointer;
+        }
+
+        .card-header h3 {
+            color: white;
+        }
+
+        .social_icon {
+            position: absolute;
+            right: 20px;
+            top: -45px;
+        }
+
+        .input-group-prepend span {
+            width: 50px;
+            background-color: #FFC312;
+            color: black;
+            border: 0 !important;
+        }
+
+        input:focus {
+            outline: 0 0 0 0 !important;
+            box-shadow: 0 0 0 0 !important;
+
+        }
+
+        .remember {
+            color: white;
+        }
+
+        .remember input {
+            width: 20px;
+            height: 20px;
+            margin-left: 15px;
+            margin-right: 5px;
+        }
+
+        .login_btn {
+            color: black;
+            background-color: #FFC312;
+            width: 100px;
+        }
+
+        .login_btn:hover {
+            color: black;
+            background-color: white;
+        }
+
+        .links {
+            color: white;
+        }
+
+        .links a {
+            margin-left: 4px;
+        }
+
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container my-5">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <br>
+                <div class="card-body text-center">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="input-group form-group">
+
+                            &nbsp;&nbsp;
+                            <select class="form-select form-select-lg m-3" aria-label=".form-select-lg example">
+                                <option selected>From Currency</option>
+                                <option value="1">USD</option>
+                                <option value="2">IND</option>
+                                <option value="3">AUS</option>
+                                <option value="4">EUR</option>
+                                <option value="5">ALL</option>
+                                <option value="6">AFN</option>
+                                <option value="7">DZD</option>
+                                <option value="8">AOA</option>
+                                <option value="9">XED</option>
+                                <option value="10">ARS</option>
+                                <option value="11">AMD</option>
+                                <option value="12">AWG</option>
+                                <option value="13">AUD</option>
+                                <option value="14">AZN</option>
+                                <option value="15">BSD</option>
+                                <option value="16">BHD</option>
+                                <option value="17">BDT</option>
+                                <option value="18">BBD</option>
+                                <option value="19">BYN</option>
+                                <option value="20">BZD</option>
+                                <option value="21">XOF</option>
+                            </select>
+                            &nbsp;&nbsp;
+                            <select class="form-select form-select-lg m-3" aria-label=".form-select-lg example">
+                                <option selected>To Currency</option>
+                                <option value="1">USD</option>
+                                <option value="2">IND</option>
+                                <option value="3">AUS</option>
+                                <option value="4">EUR</option>
+                                <option value="5">ALL</option>
+                                <option value="6">AFN</option>
+                                <option value="7">DZD</option>
+                                <option value="8">AOA</option>
+                                <option value="9">XED</option>
+                                <option value="10">ARS</option>
+                                <option value="11">AMD</option>
+                                <option value="12">AWG</option>
+                                <option value="13">AUD</option>
+                                <option value="14">AZN</option>
+                                <option value="15">BSD</option>
+                                <option value="16">BHD</option>
+                                <option value="17">BDT</option>
+                                <option value="18">BBD</option>
+                                <option value="19">BYN</option>
+                                <option value="20">BZD</option>
+                                <option value="21">XOF</option>
+                            </select>
+                            <br><br>
+                            <label style="color:navajowhite">From Date</label>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                &nbsp;&nbsp;
+                                <input type="date" name="from_date" id="from_date" class="form-control"
+                                       placeholder="username">
+                            </div>
+                            <Label style="color:navajowhite">Till Date</Label>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                &nbsp;&nbsp;
+                                <input type="date" name="to_date" id="to_date" class="form-control"
+                                       placeholder="to date">
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <div class="text-center"><input type="submit" value="Graphify"
+                                                            class="btn  login_btn text-center"></div>
+                        </div>
+                        {% if uploaded_file_url %}
+                            <p style="color:wheat">File uploaded and processed successfully. Can be viewed at: <a
+                                    href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <img src="https://github.com/Darshan110801/VNIT-Astronomy-Club-Website/blob/master/static/images/Capture10.JPG?raw=true" alt="chart">
+    </div>
+{% endblock content %}
